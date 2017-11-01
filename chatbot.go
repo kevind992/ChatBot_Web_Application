@@ -12,6 +12,8 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "Hello, %s!, How are you today?", r.URL.Query().Get("value")) //.Path[1:])
 
+	
+
 }
 func main() {
 
