@@ -5,8 +5,8 @@
 <html lang="en">
   <head>
       <style type="text/css">
-            #container{
-                 background: #F5F5DC;
+            #user-output-form{
+                margin-top: 100px;
             }
         </style>
     <!-- Required meta tags -->
@@ -22,17 +22,24 @@
     </nav>
     <div class="container" id="container">
       <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
-      <form id="user-input-form">
-        
+
+      <form id="user-output-form">
+        <div class="form-group">
+          <label for="output-area">Responce Area</label>
+          <textarea class="form-control" id="output-area" rows="3" disabled></textarea>
+        </div>
       </form>
     </div>
-    <nav class="navbar fixed-bottom navbar-light bg-light justify-content-between">
-      <a class="navbar-brand">Talk to Eliza</a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="text" placeholder="Type a message" aria-label="text">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Send</button>
-      </form>
-    </nav>
+
+    <form id="user-input-form">
+      <nav class="navbar fixed-bottom navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Talk to Eliza</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" id="user-input" type="text" placeholder="Type a message" aria-label="text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Send</button>
+        </form>
+      </nav>
+    </form>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
