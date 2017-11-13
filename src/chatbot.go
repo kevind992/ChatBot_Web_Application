@@ -6,8 +6,12 @@ import (
 
 	"fmt"
 	"net/http"
-
+	
 )
+type Message struct {
+    message string
+}
+
 func userinputhandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w,"User : %s \n", r.URL.Query().Get("value"))
@@ -17,6 +21,8 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 
 }
 func main() {
+
+	runEliza()
 
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
