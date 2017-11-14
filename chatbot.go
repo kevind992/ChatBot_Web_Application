@@ -22,7 +22,7 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 
-	runEliza()
+	fmt.Println(runEliza())
 
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
