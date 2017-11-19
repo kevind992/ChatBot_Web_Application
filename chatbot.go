@@ -17,7 +17,9 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 
 	output := eliza.ElizaStart(input)
 
-	fmt.Fprintf(w, "%s", output)
+	//Returning input and output to the user
+	fmt.Fprintf(w, "User: %s\n", input)
+	fmt.Fprintf(w, "Eliza: %s", output)
 
 }
 func main() {
