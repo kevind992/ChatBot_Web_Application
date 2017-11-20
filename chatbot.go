@@ -11,7 +11,8 @@ import (
 )
 func userinputhandler(w http.ResponseWriter, r *http.Request) {
 	
-	input := r.URL.Query().Get("value")
+	//input := r.URL.Query().Get("value")
+	input := r.Header.Get("value")
 
 	fmt.Println("The user input is: ",input)
 
@@ -19,13 +20,11 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 
 	//Returning input and output to the user
 	fmt.Fprintf(w, "User: %s\n", input)
-	fmt.Fprintf(w, "Eliza: %s", output)
+	fmt.Fprintf(w, "Eliza: %s\n", output)
 
 }
 func main() {
 
-	
-	
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
 
