@@ -24,7 +24,8 @@
           <small id="user-input-help" class="form-text text-muted">Type something here and press submit.</small>
         </div>
         
-        <button type="button" class="btn btn-primary" onclick="loadDoc()">Send..</button>
+       function processInfo() {
+        <button type="button" class="btn btn-primary" onclick="processInfo()">Send..</button>
 
         <div class="form-group">
           <label for="output-area">Eliza response</label>
@@ -47,15 +48,16 @@
             })
         });*/
 
-       function loadDoc() {
+       function processInfo() {
+
           var xhttp = new XMLHttpRequest();
 
           xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
              document.getElementById("output-areaEliza").value += xhttp.responseText;
-           }
-        };
-         xhttp.open("POST", "user-input");
+            }
+          };
+          xhttp.open("POST", "user-input");
           xhttp.setRequestHeader("Cache-Control", "no-cache");
           xhttp.setRequestHeader("value", document.getElementById("user-input").value);
           xhttp.send();
