@@ -9,8 +9,11 @@ import (
 	"./eliza"
 	
 )
-func userinputhandler(w http.ResponseWriter, r *http.Request) {
-	
+
+
+
+func userInputHandler(w http.ResponseWriter, r *http.Request) {
+
 	//input := r.URL.Query().Get("value")
 	input := r.Header.Get("value")
 
@@ -19,8 +22,8 @@ func userinputhandler(w http.ResponseWriter, r *http.Request) {
 	output := eliza.ElizaStart(input)
 
 	//Returning input and output to the user
-	fmt.Fprintf(w, "User: %s\n", input)
-	fmt.Fprintf(w, "Eliza: %s\n", output)
+	//fmt.Fprintf(w, "User: %s\n", input)
+ 	fmt.Fprintf(w, "Eliza: %s\n", output)
 
 }
 func main() {
@@ -28,7 +31,7 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
 
-	http.HandleFunc("/user-input", userinputhandler)
+	http.HandleFunc("/user-input", userInputHandler)
 
 	http.ListenAndServe(":8080", nil)
 }
