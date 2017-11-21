@@ -16,7 +16,7 @@
       <h1>Eliza Chatbot</h1>
     </div>
 
-    <div class="container">
+    <div class="container" onSubmit="return false;">
       <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
       <form id="user-input-form">
         <div class="form-group">
@@ -24,11 +24,11 @@
           <small id="user-input-help" class="form-text text-muted">Type something here and press submit.</small>
         </div>
         
-        <button type="button" class="btn btn-primary" onclick="loadDoc()">Send..</button>
+        <button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>
 
         <div class="form-group">
           <label for="output-area">Eliza response</label>
-          <textarea class="form-control" id="output-areaEliza" rows="10" disabled></textarea>
+          <!--<textarea class="form-control" id="output-areaEliza" rows="10" disabled></textarea>-->
         </div>
       </form>
     </div>
@@ -49,17 +49,41 @@
 
        function loadDoc() {
           var xhttp = new XMLHttpRequest();
+          
 
           xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-             document.getElementById("output-areaEliza").value += xhttp.responseText;
-           }
-        };
+            if (this.readyState == 4 && this.status == 200) {
+
+              // Adapted from: https://stackoverflow.com/questions/14094697/javascript-how-to-create-new-div-dynamically-change-it-move-it-modify-it-in
+              var div = document.createElement('div');
+              document.body.appendChild(div);
+
+              div.style.left = '32px'; 
+              div.style.top = '-16px';
+              div.style.height = '50';
+              div.style.width = '100';
+              div.id = 'output-areaEliza';
+              div.className = 'alert alert-primary';
+              div.role = 'alert'
+
+              div.textContent = "\n" + xhttp.responseText + "\n"; 
+              
+              //document.getElementById("output-areaEliza").value += xhttp.responseText;
+            }
+          };
          xhttp.open("POST", "user-input");
           xhttp.setRequestHeader("Cache-Control", "no-cache");
           xhttp.setRequestHeader("value", document.getElementById("user-input").value);
           xhttp.send();
         }
+
+         document.getElementById("user-input").addEventListener('keydown',(evt)=>{
+          switch(evt.which){
+            case 13:
+              loadDoc();
+          }
+
+        });
     </script>
   </body>
 </html>
