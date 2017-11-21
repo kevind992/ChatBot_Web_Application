@@ -8,6 +8,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
+      body {
+        background-image: url("backgroundImage.jpg");
+      }
       #input-areaEliza{
         text-align: left;
         margin-left: 200px;
@@ -32,11 +35,9 @@
       <form id="user-input-form">
         <div class="form-group">
           <input type="text" class="form-control" id="user-input" aria-describedby="user-input-help" placeholder="Talk to Eliza..">
-          <small id="user-input-help" class="form-text text-muted">Type something here and press submit.</small>
         </div>
         <button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>
         <div class="form-group">
-          <label for="output-area">Eliza response</label>
           <!--<textarea class="form-control" id="output-areaEliza" rows="10" disabled></textarea>-->
         </div>
       </form>
