@@ -24,7 +24,12 @@
           <small id="user-input-help" class="form-text text-muted">Type something here and press submit.</small>
         </div>
         
+<<<<<<< HEAD
         <button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>
+=======
+       function processInfo() {
+        <button type="button" class="btn btn-primary" onclick="processInfo()">Send..</button>
+>>>>>>> 41531d0957eed20c3a54413d8a16459ae39b8549
 
         <div class="form-group">
           <label for="output-area">Eliza response</label>
@@ -47,11 +52,13 @@
             })
         });*/
 
-       function loadDoc() {
+       function processInfo() {
+
           var xhttp = new XMLHttpRequest();
           
 
           xhttp.onreadystatechange = function() {
+<<<<<<< HEAD
             if (this.readyState == 4 && this.status == 200) {
 
               // Adapted from: https://stackoverflow.com/questions/14094697/javascript-how-to-create-new-div-dynamically-change-it-move-it-modify-it-in
@@ -72,6 +79,13 @@
             }
           };
          xhttp.open("POST", "user-input");
+=======
+          if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("output-areaEliza").value += xhttp.responseText;
+            }
+          };
+          xhttp.open("POST", "user-input");
+>>>>>>> 41531d0957eed20c3a54413d8a16459ae39b8549
           xhttp.setRequestHeader("Cache-Control", "no-cache");
           xhttp.setRequestHeader("value", document.getElementById("user-input").value);
           xhttp.send();
