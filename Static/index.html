@@ -13,13 +13,13 @@
       }
       #input-areaEliza{
         text-align: left;
-        margin-left: 200px;
+        margin-left: 300px;
         width: 500px;
         position: relative;
       }
       #output-areaEliza{
         text-align: left;
-        margin-left: 500px;
+        margin-left: 600px;
         width: 500px;
         position: relative;
       }
@@ -29,17 +29,23 @@
   </head>
   <body>
         <div class="container">
-            <nav class="navbar navbar-dark bg-primary">
-            <h2 class="navbar-brand">Eliza Chatbot</h2>
-          </nav>
+            <nav class="navbar navbar-light bg-primary">
+              <h2>Eliza Chatbot</h2>
+              <form class="form-inline">
+                <div class="input-group">
+                  <button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>
+                  <input type="text" class="form-control" id="user-input" placeholder="Talk to Eliza.." aria-label="Username" aria-describedby="user-input-help">
+                </div>
+               </form>
+            </nav>
         </div>
       <div class="container" onSubmit="return false;">
         <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
         <form id="user-input-form">
           <div class="form-group">
-            <input type="text" class="form-control" id="user-input" aria-describedby="user-input-help" placeholder="Talk to Eliza..">
+            <!--<input type="text" class="form-control" id="user-input" aria-describedby="user-input-help" placeholder="Talk to Eliza..">-->
           </div>
-          <button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>
+          <!--<button type="button" class="btn btn-primary" onclick="return loadDoc()">Send..</button>-->
           <div class="form-group">
             <!--<textarea class="form-control" id="output-areaEliza" rows="10" disabled></textarea>-->
           </div>

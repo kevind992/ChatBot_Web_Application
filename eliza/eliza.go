@@ -19,11 +19,7 @@ func ElizaStart(userInput string) string{
 
 	ranNum := rand.Intn(3)
 
-	if matched, _ := regexp.MatchString(`(?i).*\bfather\b.*`, userInput); matched {
-		return "Why don't you tell me more about your Father?"
-	}
-
-	re1 := regexp.MustCompile("Hi, my name is ([^.!?]*)[.!?]?")
+	re1 := regexp.MustCompile(`(?im)^\s*Hi, my name is ([^.,!?]*)[.,!?]?`)
 	if re1.MatchString(userInput){
 		return re1.ReplaceAllString(userInput,"Hi $1, how are you today?")
 	}

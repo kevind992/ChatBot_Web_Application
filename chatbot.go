@@ -9,22 +9,16 @@ import (
 	"./eliza"
 	
 )
-
-
-
 func userInputHandler(w http.ResponseWriter, r *http.Request) {
 
-	//input := r.URL.Query().Get("value")
 	input := r.Header.Get("value")
 
 	fmt.Println("The user input is: ",input)
 
 	output := eliza.ElizaStart(input)
 
-	//Returning input and output to the user
-	//fmt.Fprintf(w, "User: %s\n", input)
+	//Returning output to the user
  	fmt.Fprintf(w, "Eliza: %s\n", output)
-
 }
 func main() {
 
