@@ -1,37 +1,74 @@
-## Welcome to GitHub Pages
+# READ me
 
-You can use the [editor on GitHub](https://github.com/kevind992/ChatBot_Web_Application/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+My name is Kevin Delassus and this is my 3rd Year Data Representation and Querying Eliza Project. The instructions were to create a chatbot web application in GO. Users must be able to access the program through their web browsers.
+The chatbot should be guided the Eliza Program. If we wished we could use any technique to enhance your chatbot, such as machine learning methods.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Running Eliza
+ To run the Eliza web app you first need to make sure that you have GO on your PC.If you dont go to the link below and download and install GO.
+ 
+    https://golang.org/
+    
 
-### Markdown
+To complete the next step GIT is also required on you PC. If you don't have GIT installed go to the link below and download and install GIT
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    https://git-scm.com/
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Once both has been installed you are ready for Eliza!
+Open your CMD again and navigate to where you would like to clone the Eliza repository. To clone enter:
+```sh
+    $ git clone https://github.com/kevind992/ChatBot_Web_Application.git
+```     
+Once the repository has been cloned, navigate into the Eliza folder.
+To build the GO file enter:
+```sh
+   $ go build Chatbot.go
+```    
+To run the program, enter:    
+```sh
+    $ Chatbot.exe
 ```
+You not need to open your browser and in the address bar type:
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+    localhost:8080
 
-### Jekyll Themes
+The Eliza program should now be running on the screen.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kevind992/ChatBot_Web_Application/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+To use simply enter what you which to say to Eliza, press send and she should reply back to you. Enjoy her wise wisdom! 
 
-### Support or Contact
+### Who and What is Eliza?
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Eliza is a computer program that emulates a Rogerian psychotherapist. When the original Eliza first appeared in the 60's, some people actually mistook her for human. The illusion of intelligence works best, however, if you limit your conversation to talking about yourself and your life.
+
+### Layout of Filing
+
+The Eliza folder containes 2 Go files, one which runs the server and the second which contains all the code for Eliza herself.
+Inside the static folder containes a html file and a javascript file.
+Inside the index.html containes all the code for the layout.
+Inside the javascript file containes all the code for sending the data to and from the Go file. It also creates new dynamic divs to display the input and response to the user.
+Finaly, the rest of the files included are the .gitignore, licence and the readme which you are currently reading.
+
+### Softwares Used
+
+To create the user interface I used bootstrap
+    https://getbootstrap.com/
+Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery. 
+
+Go programming launguage was used for the server and Eliza herself.
+https://golang.org/
+Go is a programming language created at Google in 2009 by Robert Griesemer, Rob Pike, and Ken Thompson. It is a compiled, statically typed language in the tradition of Algol and C, with garbage collection, limited structural typing, memory safety features and CSP-style concurrent programming features added. The compiler and other language tools originally developed by Google are all free and open source.
+
+Javascript was used for running in the background. It would take and output the user input and output.
+https://www.javascript.com/
+
+### Areas for Improvement
+
+In the future I would love to expand Eliza's inteligence. I would like to make her more real like. (Not so blunt!)
+I would also like to improve my javascript by adding jquery.
+I attemped this but failed to get it working before the project deadline so reverted back to plain javascript.
+
+   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
+   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
+   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
+   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
+   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
+   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
