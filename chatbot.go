@@ -1,4 +1,6 @@
 //Author: Kevin Delassus
+// This file contains the Go code used to run the server.
+// It also handles the index.html which is kept in the static folder
  
 package main
 
@@ -9,8 +11,6 @@ import (
 	"./eliza"
 	
 )
-
-
 
 func userInputHandler(w http.ResponseWriter, r *http.Request) {
 

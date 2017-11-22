@@ -1,3 +1,7 @@
+//Author: Kevin Delassus
+//This File contains the code for Eliza.
+
+
 package eliza
 
 import(
@@ -5,19 +9,29 @@ import(
 	"regexp"
 	"time"
 	"math/rand"
-	//"fmt"
 	"strings"
-
 )
 
 func ElizaStart(userInput string) string{
 
 	rand.Seed(time.Now().UTC().UnixNano())
 
-	//userInput = Reflect(userInput)
-
 	ranNum := rand.Intn(3)
 
+	hello := []string{
+		"hey",
+		"Hello",
+		"Bonjour",
+		"Hows it going",
+	}
+	for i := 0; i < 4; i++{
+		if matched, _ := regexp.MatchString(`(?i).*\b`+ hello[i] +`\b.*`, userInput); matched {
+			return "Hi there, how are you feeling today?"
+		}
+	}
+	if matched, _ := regexp.MatchString(`(?i).*\bversion\b.*`, userInput); matched {
+		return "You are running version Eliza 2.0.1 : 2017"
+	}
 	re1 := regexp.MustCompile(`(?im)^\s*Hi my name is ([^.,!?]*)[.,!?]?`)
 	if re1.MatchString(userInput){
 		return re1.ReplaceAllString(userInput,"Hi $1, how are you today?")
@@ -31,7 +45,10 @@ func ElizaStart(userInput string) string{
 
 		return re1.ReplaceAllString(userInput, a1[ranNum])
 	}
-
+	re1 = regexp.MustCompile(`(?im)^\s*Hi, my name is ([^.,!?]*)[.,!?]?`)
+	if re1.MatchString(userInput){
+		return re1.ReplaceAllString(userInput,"Hi $1, how are you today?")
+	}
 	re1 = regexp.MustCompile(`(?im)^\s*Why don'?t you ([^\?]*)\?*\s*$`)
 	if re1.MatchString(userInput){
 		a2 := []string{
@@ -46,8 +63,7 @@ func ElizaStart(userInput string) string{
 		a3 := []string{
 			"Do you think you should be able to $1?",
 			"If you could $1, what would you do?",
-			"I don't know - why can't you $1?",
-			"Have you really tried?",}
+			"I don't know - why can't you $1?",}
 			return re1.ReplaceAllString(userInput, a3[ranNum])
 		
 	}
@@ -74,8 +90,7 @@ func ElizaStart(userInput string) string{
 		a6 := []string{
 			"How does being $1 make you feel",
 			"Do you enjoy being $1",
-			"Why do you tell me you're $1",
-			"Why do you think you're $1",}
+			"Why do you tell me you're $1",}
 			return re1.ReplaceAllString(userInput, a6[ranNum])
 		
 	}
@@ -214,6 +229,7 @@ func ElizaStart(userInput string) string{
 		
 	}
 	return ""
+
 }
 func Reflect(input string)string{
 
