@@ -10,7 +10,6 @@ import(
 
 )
 
-
 func ElizaStart(userInput string) string{
 
 	rand.Seed(time.Now().UTC().UnixNano())
@@ -19,7 +18,7 @@ func ElizaStart(userInput string) string{
 
 	ranNum := rand.Intn(3)
 
-	re1 := regexp.MustCompile(`(?im)^\s*Hi  my name is ([^.,!?]*)[.,!?]?`)
+	re1 := regexp.MustCompile(`(?im)^\s*Hi my name is ([^.,!?]*)[.,!?]?`)
 	if re1.MatchString(userInput){
 		return re1.ReplaceAllString(userInput,"Hi $1, how are you today?")
 	}

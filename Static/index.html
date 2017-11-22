@@ -11,15 +11,19 @@
       body {
         background-color: rgb(100, 100, 100);
       }
+      #message-container{
+          margin-top: 150px;
+          margin-bottom: 100px;
+      }
       #input-areaEliza{
         text-align: left;
-        margin-left: 300px;
+        margin-left: 200px;
         width: 500px;
         position: relative;
       }
       #output-areaEliza{
         text-align: left;
-        margin-left: 600px;
+        margin-left: 500px;
         width: 500px;
         position: relative;
       }
@@ -27,9 +31,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
-  <body>
+    <body>
         <div class="container" onSubmit="return false;">
-            <nav class="navbar navbar-light fixed-top" style="background-color: #565e6b;">
+            <nav id="navB" class="navbar navbar-light fixed-top" style="background-color: #565e6b;">
               <h2>Eliza Chatbot</h2>
               <form class="form-inline" id="user-input-form">
                 <div class="input-group">
@@ -40,11 +44,11 @@
             </nav>
         </div>
       <div class="container" id="message-container">
-        <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
-        <form id="user-input-form">
-          <div class="form-group">
-            <!--<input type="text" class="form-control" id="user-input" aria-describedby="user-input-help" placeholder="Talk to Eliza..">-->
-          </div>
+        <!--Divs created dynamically in the javascript get inserted here-->
+      </div>
+         <nav class="navbar navbar-light bg-light fixed-bottom" style="background-color: #565e6b;">
+            <span class="navbar-text">G00270791</span>
+        </nav>
         </form>
   </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -52,17 +56,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <script>
+<script>
 
-       /*$("#user-input-form").submit(
-        function(event) {
+      /* $("#user-input-form").submit(function(event){
           event.preventDefault();
           $.get('/user-input', { value: $('#user-input').val() } )
             .done(function (data) {
-              $('#output-area').val(data);
+              $(".containerM").append($("div"));
+              //$('#output-area').val(data);
             })
         });*/
+        
+        /*$(document).ready(function(){
+          $("#submitBtn").click(function(){
+            $(".containerM").append($("div"));
+            $( "div" ).text( value );
+          });
 
+        });*/
        function loadDoc() {
           var xhttp = new XMLHttpRequest();
           var userInput, userOutput;
@@ -70,24 +81,27 @@
           xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
               // Adapted from: https://stackoverflow.com/questions/14094697/javascript-how-to-create-new-div-dynamically-change-it-move-it-modify-it-in
+              
+              var iDiv = document.getElementById('message-container')
+              document.getElementsByTagName('body')[0].appendChild(iDiv);
               var divInput = document.createElement('div');
               var divOutput = document.createElement('div');
-              var divCon = document.createElement('div');
               divInput.textContent = "User: " + document.getElementById('user-input').value;
-              document.body.appendChild(divInput);
-              document.body.appendChild(divOutput);
               
               divInput.id = 'input-areaEliza';
               divInput.setAttribute("role", "alert")
               divInput.setAttribute("class", "alert alert-danger");
+              iDiv.appendChild(divInput);
 
               console.log(divInput);
               divOutput.id = 'output-areaEliza';
               divOutput.setAttribute("role", "alert")
               divOutput.setAttribute("class", "alert alert-info");
+              iDiv.appendChild(divOutput);
 
               console.log(divOutput);
               divOutput.textContent = xhttp.responseText;
+              window.scrollTo(0, document.body.scrollHeight);
             }
           };
           xhttp.open("POST", "user-input");
@@ -100,6 +114,8 @@
           if (evt.keyCode == 13){
               loadDoc();
           }});
+
+        window.scrollTo(0, document.body.scrollHeight);   
     </script>
   </body>
 </html>
