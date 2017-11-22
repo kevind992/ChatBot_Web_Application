@@ -17,7 +17,7 @@ func ElizaStart(userInput string) string{
 
 	//userInput = Reflect(userInput)
 
-	ranNum := rand.Intn(3)
+	ranNum := rand.Intn(42)
 
 	re1 := regexp.MustCompile(`(?im)^\s*Hi, my name is ([^.,!?]*)[.,!?]?`)
 	if re1.MatchString(userInput){
