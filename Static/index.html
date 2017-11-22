@@ -29,7 +29,7 @@
   </head>
   <body>
         <div class="container" onSubmit="return false;">
-            <nav class="navbar navbar-light" style="background-color: #565e6b;">
+            <nav class="navbar navbar-light fixed-top" style="background-color: #565e6b;">
               <h2>Eliza Chatbot</h2>
               <form class="form-inline" id="user-input-form">
                 <div class="input-group">
@@ -39,7 +39,7 @@
                </form>
             </nav>
         </div>
-      <div class="container" >
+      <div class="container" id="message-container">
         <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
         <form id="user-input-form">
           <div class="form-group">
@@ -53,18 +53,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <script>
-      
+
+       /*$("#user-input-form").submit(
+        function(event) {
+          event.preventDefault();
+          $.get('/user-input', { value: $('#user-input').val() } )
+            .done(function (data) {
+              $('#output-area').val(data);
+            })
+        });*/
+
        function loadDoc() {
           var xhttp = new XMLHttpRequest();
-
           var userInput, userOutput;
           
           xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-
               // Adapted from: https://stackoverflow.com/questions/14094697/javascript-how-to-create-new-div-dynamically-change-it-move-it-modify-it-in
               var divInput = document.createElement('div');
               var divOutput = document.createElement('div');
+              var divCon = document.createElement('div');
               divInput.textContent = "User: " + document.getElementById('user-input').value;
               document.body.appendChild(divInput);
               document.body.appendChild(divOutput);
@@ -72,16 +80,14 @@
               divInput.id = 'input-areaEliza';
               divInput.setAttribute("role", "alert")
               divInput.setAttribute("class", "alert alert-danger");
-              console.log(divInput);
 
+              console.log(divInput);
               divOutput.id = 'output-areaEliza';
               divOutput.setAttribute("role", "alert")
               divOutput.setAttribute("class", "alert alert-info");
-              console.log(divOutput);
 
+              console.log(divOutput);
               divOutput.textContent = xhttp.responseText;
-              
-              //document.getElementById("output-areaEliza").value += xhttp.responseText;
             }
           };
           xhttp.open("POST", "user-input");
@@ -90,13 +96,10 @@
           xhttp.send();
         }
 
-         document.getElementById("user-input").addEventListener('keydown',(evt)=>{
-          switch(evt.which){
-            case 13:
+        $("#user-input").keydown((evt)=>{
+          if (evt.keyCode == 13){
               loadDoc();
-          }
-
-        });
+          }});
     </script>
   </body>
 </html>
