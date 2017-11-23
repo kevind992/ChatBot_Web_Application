@@ -4,7 +4,7 @@ My name is Kevin Delassus and this is my 3rd Year Data Representation and Queryi
 The chatbot should be guided the Eliza Program. If we wished we could use any technique to enhance your chatbot, such as machine learning methods.
 
 ## Running Eliza
- To run the Eliza web app you first need to make sure that you have GO on your PC.If you dont go to the link below and download and install GO.
+ To run the Eliza web app you first need to make sure that you have GO on your PC. If you dont go to the link below and download and install GO.
  
     https://golang.org/
     
@@ -14,7 +14,7 @@ To complete the next step GIT is also required on you PC. If you don't have GIT 
     https://git-scm.com/
 
 Once both has been installed you are ready for Eliza!
-Open your CMD again and navigate to where you would like to clone the Eliza repository. To clone enter:
+Open your CMD again and navigate to where you would like to clone the Eliza repository. To clone the repository enter:
 ```sh
     $ git clone https://github.com/kevind992/ChatBot_Web_Application.git
 ```     
@@ -41,30 +41,30 @@ Eliza is a computer program that emulates a Rogerian psychotherapist. When the o
 
 ### Layout of Filing
 
-The Eliza folder containes 2 Go files, one which runs the server and the second which contains all the code for Eliza herself.
-Inside the static folder containes a html file and a javascript file.
-Inside the index.html containes all the code for the layout.
-Inside the javascript file containes all the code for sending the data to and from the Go file. It also creates new dynamic divs to display the input and response to the user.
-Finaly, the rest of the files included are the .gitignore, licence and the readme which you are currently reading.
+The Eliza folder contains 2 Go files, one which runs the server and the second which contains all the code for Eliza herself.
+Inside the static folder contains a HTML file and a JavaScript file.
+Inside the index.html contains all the code for the layout.
+Inside the JavaScript file contains all the code for sending the data to and from the Go file. It also creates new dynamic divs to display the input and response to the user.
+Finally, the rest of the files included are the .gitignore, license and the READme which you are currently reading.
 
-### Softwares Used
+### Software's Used
 
 To create the user interface I used bootstrap
     https://getbootstrap.com/
 Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery. 
 
-Go programming launguage was used for the server and Eliza herself.
+Go programming language was used for the server and Eliza herself.
 https://golang.org/
 Go is a programming language created at Google in 2009 by Robert Griesemer, Rob Pike, and Ken Thompson. It is a compiled, statically typed language in the tradition of Algol and C, with garbage collection, limited structural typing, memory safety features and CSP-style concurrent programming features added. The compiler and other language tools originally developed by Google are all free and open source.
 
-Javascript was used for running in the background. It would take and output the user input and output.
+JavaScript was used for running in the background. It would take and output the user input and output.
 https://www.javascript.com/
 
 ### Areas for Improvement
 
-In the future I would love to expand Eliza's inteligence. I would like to make her more real like. (Not so blunt!)
-I would also like to improve my javascript by adding jquery.
-I attemped this but failed to get it working before the project deadline so reverted back to plain javascript.
+In the future I would love to expand Eliza's intelligence. I would like to make her more real like. (Not so blunt!)
+I would also like to improve my JavaScript by adding jQuery.
+I attempted this but failed to get it working before the project deadline so reverted back to plain JavaScript.
 
    [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
    [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
