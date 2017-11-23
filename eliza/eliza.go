@@ -1,7 +1,7 @@
 //Author: Kevin Delassus
 //G00270791
 //This File contains the code for Eliza.
-
+//Adapted from: https://www.smallsurething.com/implementing-the-famous-eliza-chatbot-in-python/
 
 package eliza
 
@@ -19,7 +19,6 @@ func ElizaStart(userInput string) string{
 	//Creating a random num between 1 and 3
 	rand.Seed(time.Now().UTC().UnixNano())
 	ranNum := rand.Intn(3)
-
 
 	//Conversation Expressions 
 	hello := []string{
@@ -60,7 +59,6 @@ func ElizaStart(userInput string) string{
 			"Perhaps eventually I will $1?",
 			"Do you really want me to $1?",}
 			return re1.ReplaceAllString(userInput, a2[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*Why can'?t I ([^\?]*)\?*\s*$`)
 	if re1.MatchString(userInput){
@@ -69,7 +67,6 @@ func ElizaStart(userInput string) string{
 			"If you could $1, what would you do?",
 			"I don't know - why can't you $1?",}
 			return re1.ReplaceAllString(userInput, a3[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I can'?t ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -78,7 +75,6 @@ func ElizaStart(userInput string) string{
 			"Perhaps you could $1 if you tried.",
 			"What would it take for you to $1",}
 			return re1.ReplaceAllString(userInput, a4[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I am ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -87,7 +83,6 @@ func ElizaStart(userInput string) string{
 			"How long have you been $1",
 			"How do you feel about being $1",}
 			return re1.ReplaceAllString(userInput, a5[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I'm ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -96,7 +91,6 @@ func ElizaStart(userInput string) string{
 			"Do you enjoy being $1",
 			"Why do you tell me you're $1",}
 			return re1.ReplaceAllString(userInput, a6[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*How [^\?]*\?*\s*$`)
 	if re1.MatchString(userInput){
@@ -105,7 +99,6 @@ func ElizaStart(userInput string) string{
 			"Perhaps you can answer your own question.",
 			"What is it you're really asking",}
 			return re1.ReplaceAllString(userInput, a7[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*Yes\s*$`)
 	if re1.MatchString(userInput){
@@ -114,7 +107,6 @@ func ElizaStart(userInput string) string{
 			"Interesting...",
 			"OK, but can you elaborate a bit?",}
 			return re1.ReplaceAllString(userInput, a8[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I have ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -123,7 +115,6 @@ func ElizaStart(userInput string) string{
 			"Have you really $1",
 			"Now that you have $1, what will you do next?",}
 			return re1.ReplaceAllString(userInput, a9[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*Is there ([^\?]*)\?*\s*$`)
 	if re1.MatchString(userInput){
@@ -132,7 +123,6 @@ func ElizaStart(userInput string) string{
 			"It's likely that there is $1",
 			"Would you like there to be",}
 			return re1.ReplaceAllString(userInput, a10[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*You ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -141,7 +131,6 @@ func ElizaStart(userInput string) string{
 			"Why do you say that about me?",
 			"Why do you care whether I $1?",}
 			return re1.ReplaceAllString(userInput, a11[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*Why ([^\?]*)\?*\s*$`)
 	if re1.MatchString(userInput){
@@ -149,7 +138,6 @@ func ElizaStart(userInput string) string{
 			"Why don't you tell me the reason why $1?",
 			"Why do you think $1?",}
 			return re1.ReplaceAllString(userInput, a12[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I want ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -159,7 +147,6 @@ func ElizaStart(userInput string) string{
 			"What would you do if you got $1?",
 			"If you got $1, then what would you do?",}
 			return re1.ReplaceAllString(userInput, a13[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`[^\?]*\?*\s*$`)
 	if re1.MatchString(userInput){
@@ -169,7 +156,6 @@ func ElizaStart(userInput string) string{
 			"Perhaps the answer lies within yourself?",
 			"Why don't you tell me?",}
 			return re1.ReplaceAllString(userInput, a14[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*quit\s*$`)
 	if re1.MatchString(userInput){
@@ -178,7 +164,6 @@ func ElizaStart(userInput string) string{
 			"Bye now, thanks for visiting.",
 			"Have a nice day.",}
 			return re1.ReplaceAllString(userInput, a15[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*You are ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -188,7 +173,6 @@ func ElizaStart(userInput string) string{
 			"Perhaps you would like me to be $1",
 			"Perhaps you're really talking about yourself?",}
 			return re1.ReplaceAllString(userInput, a16[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*You're ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -197,7 +181,6 @@ func ElizaStart(userInput string) string{
 			"Why do you think I am $1?",
 			"Are we talking about you, or me?",}
 			return re1.ReplaceAllString(userInput, a17[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*I don't ([^\.!]*)[\.!]*\s*$`)
 	if re1.MatchString(userInput){
@@ -206,7 +189,6 @@ func ElizaStart(userInput string) string{
 			"Why don't you $1",
 			"Do you want to $1?",}
 			return re1.ReplaceAllString(userInput, a18[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(?im)^\s*quit\s*$`)
 	if re1.MatchString(userInput){
@@ -215,7 +197,6 @@ func ElizaStart(userInput string) string{
 			"Bye now, thanks for visiting.",
 			"Have a nice day.",}
 			return re1.ReplaceAllString(userInput, a19[ranNum])
-		
 	}
 	re1 = regexp.MustCompile(`(.*)`)
 	if re1.MatchString(userInput){
@@ -230,10 +211,8 @@ func ElizaStart(userInput string) string{
 			"I see, and what does that tell you?",
 		}
 			return re1.ReplaceAllString(userInput, a20[ranNum])
-		
 	}
 	return ""
-
 }
 func Reflect(input string)string{
 
