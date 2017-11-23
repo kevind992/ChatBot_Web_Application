@@ -1,9 +1,11 @@
 //Author: Kevin Delassus
+//G00270791
 //This File contains the code for Eliza.
 
 
 package eliza
 
+//Imports
 import(
 
 	"regexp"
@@ -11,13 +13,15 @@ import(
 	"math/rand"
 	"strings"
 )
-
+//function to run all the Eliza expressions
 func ElizaStart(userInput string) string{
 
+	//Creating a random num between 1 and 3
 	rand.Seed(time.Now().UTC().UnixNano())
-
 	ranNum := rand.Intn(3)
 
+
+	//Conversation Expressions 
 	hello := []string{
 		"hey",
 		"Hello",

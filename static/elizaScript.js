@@ -1,4 +1,5 @@
 // Author: Kevin Delassus
+//G00270791
 //This file contains all the JavaScript code for my Eliza program
 
 /* $("#user-input-form").submit(function(event){
